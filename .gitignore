@@ -1,2 +1,5 @@
+.DS_Store
+.netlify
+.hugo_build.lock
 resources
 public
