@@ -1,0 +1,241 @@
+:root {
+    --bg: #ffffff;
+    --text: #000000;
+    --link: #0000ee;
+    --border: #333333;
+    --muted: #666666;
+    --code-bg: #f5f5f5;
+}
+
+body {
+    font-family: 'Fira Code', 'Courier New', Courier, monospace;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.5;
+    margin: 40px 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1,
+h2,
+h3 {
+    font-weight: bold;
+    margin-top: 1.5em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid var(--border);
+}
+
+a {
+    color: var(--link);
+}
+
+ul,
+ol {
+    margin-left: 20px;
+    margin-bottom: 1em;
+}
+
+.feature-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.feature-list li {
+    margin-bottom: 1.5em;
+}
+
+.feature-title {
+    font-weight: bold;
+    display: block;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2em 0;
+}
+
+th,
+td {
+    border: 1px solid var(--border);
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: var(--code-bg);
+}
+
+.code-block {
+    background-color: var(--code-bg);
+    padding: 15px;
+    border: 1px solid var(--border);
+    font-family: 'Fira Code', monospace;
+    white-space: pre-wrap;
+    margin: 1em 0;
+}
+
+.comparison-tag {
+    font-size: 0.8em;
+    padding: 2px 5px;
+    border: 1px solid var(--border);
+    margin-left: 10px;
+}
+
+.hero-section {
+    margin-bottom: 2em;
+}
+
+.hero-section .device-image-container {
+    padding: 0;
+}
+
+.mobile-preview-section {
+    margin: 4em 0;
+}
+
+.mobile-images-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    /* Approximate for layout */
+    display: flex;
+    align-items: flex-end;
+}
+
+.device-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.device-wrapper img {
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+    display: block;
+    width: 100%;
+}
+
+.screen {
+    position: absolute;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.screen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* MacBook Screen Positioning */
+.macbook-wrapper .macbook-screen {
+    top: 5.0%;
+    left: 11.2%;
+    width: 77.6%;
+    height: 83.2%;
+    background-color: yellow;
+    /* User requested yellow */
+}
+
+.macbook-wrapper .macbook-window {
+    position: absolute;
+    top: 11%;
+    left: 11%;
+    width: 78%;
+    height: 78%;
+    background-color: #6c5ce7;
+    /* Distinct purple */
+    border-radius: 4px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+/* iPad Screen Positioning */
+.ipad-wrapper .ipad-screen {
+    top: 4.5%;
+    left: 4.0%;
+    width: 92%;
+    height: 91%;
+    background-color: #34c759;
+    /* Vibrant Green */
+}
+
+/* iPhone Screen Positioning */
+.iphone-wrapper .iphone-screen {
+    top: 2.1%;
+    left: 6.5%;
+    width: 87%;
+    height: 95%;
+    border-radius: 12% / 6%;
+    background-color: #007aff;
+    /* Vibrant Blue */
+}
+
+/* iPhone Landscape Screen Positioning */
+.iphone-landscape-wrapper .iphone-landscape-screen {
+    top: 6.5%;
+    left: 1.7%;
+    width: 95.8%;
+    height: 87%;
+    border-radius: 6% / 12%;
+    background-color: #ff9500;
+    /* Vibrant Orange */
+}
+
+.mobile-images-container .device-wrapper {
+    width: 100%;
+}
+
+.ipad-wrapper {
+    width: 85% !important;
+    z-index: 1;
+}
+
+.iphone-wrapper {
+    width: 25% !important;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+}
+
+.device-image-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.landscape-preview {
+    margin-top: 2em;
+    text-align: center;
+}
+
+.hero-section .device-wrapper img,
+.mobile-preview-section .device-wrapper img,
+.landscape-preview .device-wrapper img,
+.device-image-container .device-wrapper img {
+    filter: none;
+    border: none;
+}
+
+footer {
+    margin-top: 4em;
+    font-size: 0.8em;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    padding-top: 1em;
+}
+
+img {
+    max-width: 100%;
+    filter: grayscale(100%);
+    border: 1px solid var(--border);
+}

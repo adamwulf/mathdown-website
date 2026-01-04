@@ -1,0 +1,7 @@
+baseURL = 'https://mathdown.app'
+languageCode = 'en-us'
+title = 'MathDown - Modern Markdown & Math'
+theme = []
+
+[params]
+  description = 'Beautiful Markdown editor with powerful math evaluation, REPL behavior, and LaTeX rendering for macOS and iOS.'

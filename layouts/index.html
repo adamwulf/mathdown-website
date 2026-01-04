@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Site.Title }}</title>
+    {{ $style := resources.Get "css/styles.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>MathDown</h1>
+            <p>A computational Markdown editor for macOS and iOS.</p>
+        </header>
+
+        <section id="hero-image" class="hero-section">
+            <div class="device-image-container">
+                <div class="device-wrapper macbook-wrapper">
+                    <div class="screen macbook-screen">
+                        <img src="/images/Computer/mac-desktop-background.png" alt="macOS Desktop Background">
+                        <div class="macbook-window"></div>
+                    </div>
+                    <img src="/images/Computer/macbook.png"
+                        srcset="/images/Computer/macbook@2x.png 2x, /images/Computer/macbook@3x.png 3x"
+                        alt="MathDown on macOS">
+                </div>
+            </div>
+        </section>
+
+        <main>
+            <section id="introduction">
+                <h2>Just the facts.</h2>
+                <p>MathDown is a text editor designed for scientists, engineers, and students who need to write about
+                    math
+                    and see it work in real-time. It combines standard Markdown with a powerful evaluation engine.</p>
+            </section>
+
+            <section id="mobile-experience" class="mobile-preview-section">
+                <div class="mobile-images-container">
+                    <div class="device-wrapper ipad-wrapper">
+                        <div class="screen ipad-screen"></div>
+                        <img src="/images/iPad/ipad.png"
+                            srcset="/images/iPad/ipad@2x.png 2x, /images/iPad/ipad@3x.png 3x" alt="MathDown on iPad"
+                            class="ipad-image">
+                    </div>
+                    <div class="device-wrapper iphone-wrapper">
+                        <div class="screen iphone-screen"></div>
+                        <img src="/images/iPhone/iphone.png"
+                            srcset="/images/iPhone/iphone@2x.png 2x, /images/iPhone/iphone@3x.png 3x"
+                            alt="MathDown on iPhone" class="iphone-image">
+                    </div>
+                </div>
+            </section>
+
+            <section id="features">
+                <h2>Core Capabilities</h2>
+                <ul class="feature-list">
+                    <li>
+                        <span class="feature-title">Rich LaTeX Rendering</span>
+                        High-fidelity rendering of math expressions using standard LaTeX syntax.
+                    </li>
+                    <li>
+                        <span class="feature-title">Live Evaluation</span>
+                        Variables and functions are evaluated as you type. No compilation step.
+                    </li>
+                    <li>
+                        <span class="feature-title">REPL Mode</span>
+                        Use $$$ blocks for interactive scratchpad behavior. Define functions, expand terms, and see
+                        step-by-step simplifications.
+                    </li>
+                    <li>
+                        <span class="feature-title">Syntax Highlighting</span>
+                        Deep integration with the AST to provide accurate highlighting for both Markdown and Math.
+                    </li>
+                </ul>
+            </section>
+
+            <section id="comparison">
+                <h2>Competition</h2>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>MathDown</th>
+                            <th>Typora</th>
+                            <th>MacDown</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Live Eval</td>
+                            <td>Yes</td>
+                            <td>No</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>REPL Blocks</td>
+                            <td>Yes</td>
+                            <td>No</td>
+                            <td>No</td>
+                        </tr>
+                        <tr>
+                            <td>LaTeX</td>
+                            <td>Rich</td>
+                            <td>Rich</td>
+                            <td>Basic</td>
+                        </tr>
+                        <tr>
+                            <td>Cross-Platform</td>
+                            <td>macOS/iOS</td>
+                            <td>Desktop</td>
+                            <td>macOS</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+
+            <section id="technical">
+                <h2>Technical Details</h2>
+                <h3>Evaluation System</h3>
+                <p>The evaluation engine uses a custom visitor pattern to traverse the math AST. It supports:</p>
+                <ul>
+                    <li>Expression simplification</li>
+                    <li>Variable substitution</li>
+                    <li>Function distribution (e.g., <code>/expand</code>)</li>
+                </ul>
+
+                <h3>Demo: REPL Behavior</h3>
+                <div class="code-block">
+                    $$$
+                    let f(x) = (x + 1)^2
+                    /expand f(x)
+                    # Output: x^2 + 2x + 1
+
+                    f(3)
+                    # Output: 16
+                    $$$
+                </div>
+                <div class="landscape-preview">
+                    <div class="device-wrapper iphone-landscape-wrapper">
+                        <div class="screen iphone-landscape-screen"></div>
+                        <img src="/images/iPhone/iphone-landscape.png"
+                            srcset="/images/iPhone/iphone-landscape@2x.png 2x, /images/iPhone/iphone-landscape@3x.png 3x"
+                            alt="MathDown on iPhone Landscape">
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+
+    <div class="container">
+        <section id="download">
+            <h2>Availability</h2>
+            <p>Available for <a href="#">macOS</a> and <a href="#">iOS</a>.</p>
+        </section>
+
+        <footer>
+            <p>&copy; 2026 MathDown Project. Built for the academic community.</p>
+        </footer>
+    </div>
+</body>
+
+</html>
