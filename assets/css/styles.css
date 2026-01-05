@@ -148,14 +148,22 @@ th {
 
 .macbook-wrapper .macbook-window {
     position: absolute;
-    top: 11%;
-    left: 11%;
-    width: 78%;
-    height: 78%;
-    background-color: #6c5ce7;
-    /* Distinct purple */
+    top: calc(11% - 2pt);
+    left: calc(11% - 2pt);
+    width: calc(78% + 4pt);
+    height: calc(78% + 4pt);
+    /* Distinct purple removed for actual content */
     border-radius: 4px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.macbook-wrapper .macbook-window img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #ffffff;
+    /* Keep white as background for the window content area if image doesn't fill */
 }
 
 /* iPad Screen Positioning */
