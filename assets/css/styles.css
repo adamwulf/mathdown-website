@@ -227,7 +227,7 @@ th {
 
 /* iPhone Screen Positioning */
 .iphone-wrapper .iphone-screen {
-    top: 2.1%;
+    top: 2%;
     left: 6.5%;
     width: 87%;
     height: 95%;
@@ -238,7 +238,7 @@ th {
 
 /* iPhone Landscape Screen Positioning */
 .iphone-landscape-wrapper .iphone-landscape-screen {
-    top: 6.5%;
+    top: 6.4%;
     left: 1.7%;
     width: 95.8%;
     height: 87%;
