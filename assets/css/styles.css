@@ -136,6 +136,26 @@ th {
     display: block;
 }
 
+.macbook-wrapper {
+    width: 128%;
+    margin-left: -14%;
+}
+
+@media (max-width: 1024px) {
+    .macbook-wrapper {
+        /* Linearly scale to fit window width between 800px and 1024px */
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+    }
+}
+
+@media (max-width: 800px) {
+    .macbook-wrapper {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
 /* MacBook Screen Positioning */
 .macbook-wrapper .macbook-screen {
     top: 5.0%;
