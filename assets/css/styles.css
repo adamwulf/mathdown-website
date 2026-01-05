@@ -20,6 +20,35 @@ body {
     max-width: 800px;
     margin: 0 auto;
     padding: 0 20px;
+    position: relative;
+}
+
+.back-arrow {
+    position: absolute;
+    left: -18px;
+    top: -18px;
+    font-size: 3em;
+    text-decoration: none;
+    color: var(--text);
+    transition: left .3s ease;
+}
+
+@media (max-width: 960px) {
+    .back-arrow {
+        position: absolute;
+        left: 20px;
+        top: -18px;
+        display: block;
+        margin-bottom: 20px;
+    }
+
+    h1 {
+        padding-left: 36px;
+    }
+}
+
+h1 {
+    transition: padding .3s ease;
 }
 
 h1,
