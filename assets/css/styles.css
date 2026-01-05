@@ -136,6 +136,26 @@ th {
     display: block;
 }
 
+.macbook-wrapper {
+    width: 128%;
+    margin-left: -14%;
+}
+
+@media (max-width: 1024px) {
+    .macbook-wrapper {
+        /* Linearly scale to fit window width between 800px and 1024px */
+        width: 100vw;
+        margin-left: calc(50% - 50vw);
+    }
+}
+
+@media (max-width: 800px) {
+    .macbook-wrapper {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
 /* MacBook Screen Positioning */
 .macbook-wrapper .macbook-screen {
     top: 5.0%;
@@ -148,14 +168,22 @@ th {
 
 .macbook-wrapper .macbook-window {
     position: absolute;
-    top: 11%;
-    left: 11%;
-    width: 78%;
-    height: 78%;
-    background-color: #6c5ce7;
-    /* Distinct purple */
+    top: calc(11% - 2pt);
+    left: calc(11% - 2pt);
+    width: calc(78% + 4pt);
+    height: calc(78% + 4pt);
+    /* Distinct purple removed for actual content */
     border-radius: 4px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.macbook-wrapper .macbook-window img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    background-color: #ffffff;
+    /* Keep white as background for the window content area if image doesn't fill */
 }
 
 /* iPad Screen Positioning */
