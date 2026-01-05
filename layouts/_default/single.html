@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ .Title }} - {{ .Site.Title }}</title>
+    {{ $style := resources.Get "css/styles.css" | minify | fingerprint }}
+    <link rel="stylesheet" href="{{ $style.RelPermalink }}" integrity="{{ $style.Data.Integrity }}">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1><a href="/" style="text-decoration: none; color: inherit;">MathDown</a></h1>
+            <p>{{ .Title }}</p>
+        </header>
+
+        <main>
+            {{ .Content }}
+        </main>
+    </div>
+
+    <div class="container">
+        <footer>
+            <p>&copy; 2026 MathDown Project. Built for the academic community.</p>
+            <p><a href="/">Home</a> | <a href="/privacy/">Privacy Policy</a></p>
+        </footer>
+    </div>
+</body>
+
+</html>
