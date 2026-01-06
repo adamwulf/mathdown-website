@@ -14,16 +14,19 @@
     <div class="container">
         <header>
             <h1>MathDown</h1>
-            <p>A computational Markdown editor for macOS and iOS.</p>
+            <p>A CommonMark editor with superpowers for Mac, iPad, and iPhone.</p>
         </header>
 
         <section id="hero-image" class="hero-section">
             <div class="device-image-container">
-                <div class="device-wrapper macbook-wrapper">
+                <div class="device-wrapper macbook-wrapper"><!-- MacBook Pro 16-inch -->
                     <div class="screen macbook-screen">
                         <img src="/images/Computer/mac-desktop-background.webp" alt="macOS Desktop Background">
-                        <div class="macbook-window">
-                            <img src="/images/Computer/mac-default.png" alt="MathDown Screenshot">
+                        <div class="macbook-window screen">
+                            <img src="/images/Computer/screenshot-mac-light.webp" alt="MathDown Screenshot Light"
+                                class="screenshot visible">
+                            <img src="/images/Computer/screenshot-mac-dark.webp" alt="MathDown Screenshot Dark"
+                                class="screenshot">
                         </div>
                     </div>
                     <img src="/images/Computer/macbook.webp"
@@ -36,21 +39,34 @@
         <main>
             <section id="introduction">
                 <h2>Just the facts.</h2>
-                <p>MathDown is a text editor designed for scientists, engineers, and students who need to write about
-                    math
-                    and see it work in real-time. It combines standard Markdown with a powerful evaluation engine.</p>
+                <p>MathDown is a Markdown editor for Mac, iPad, and iPhone. In addition to CommonMark, MathDown
+                    supports LaTeX and live evaluation of math expressions.</p>
             </section>
 
             <section id="mobile-experience" class="mobile-preview-section">
                 <div class="mobile-images-container">
-                    <div class="device-wrapper ipad-wrapper">
-                        <div class="screen ipad-screen"></div>
+                    <div class="device-wrapper ipad-wrapper"><!-- iPad Pro 11-inch -->
+                        <div class="screen ipad-screen">
+                            <img src="/images/iPad/screenshot-ipad-light.webp" alt="MathDown iPad Screenshot Light"
+                                class="screenshot visible">
+                            <img src="/images/iPad/screenshot-ipad-dark.webp" alt="MathDown iPad Screenshot Dark"
+                                class="screenshot">
+                        </div>
                         <img src="/images/iPad/ipad.webp"
                             srcset="/images/iPad/ipad@2x.webp 2x, /images/iPad/ipad@3x.webp 3x" alt="MathDown on iPad"
                             class="ipad-image">
                     </div>
-                    <div class="device-wrapper iphone-wrapper">
-                        <div class="screen iphone-screen"></div>
+                    <div class="device-wrapper iphone-wrapper"><!-- iPhone 15 Plus -->
+                        <div class="screen iphone-screen">
+                            <img src="/images/iPhone/screenshot-iphone-portrait-1-light.webp"
+                                alt="MathDown Screenshot 1" class="screenshot visible">
+                            <img src="/images/iPhone/screenshot-iphone-portrait-2-light.webp"
+                                alt="MathDown Screenshot 2" class="screenshot">
+                            <img src="/images/iPhone/screenshot-iphone-portrait-2-dark.webp" alt="MathDown Screenshot 3"
+                                class="screenshot">
+                            <img src="/images/iPhone/screenshot-iphone-portrait-1-dark.webp" alt="MathDown Screenshot 4"
+                                class="screenshot">
+                        </div>
                         <img src="/images/iPhone/iphone.webp"
                             srcset="/images/iPhone/iphone@2x.webp 2x, /images/iPhone/iphone@3x.webp 3x"
                             alt="MathDown on iPhone" class="iphone-image">
@@ -76,7 +92,7 @@
                     </li>
                     <li>
                         <span class="feature-title">Syntax Highlighting</span>
-                        Deep integration with the AST to provide accurate highlighting for both Markdown and Math.
+                        Fast and beautiful. Deep AST integration provides accurate highlighting for CommonMark and Math.
                     </li>
                 </ul>
             </section>
@@ -144,7 +160,12 @@
                 </div>
                 <div class="landscape-preview">
                     <div class="device-wrapper iphone-landscape-wrapper">
-                        <div class="screen iphone-landscape-screen"></div>
+                        <div class="screen iphone-landscape-screen">
+                            <img src="/images/iPhone/screenshot-iphone-landscape-light.webp"
+                                alt="MathDown Landscape Screenshot" class="screenshot visible">
+                            <img src="/images/iPhone/screenshot-iphone-landscape-dark.webp"
+                                alt="MathDown Landscape Screenshot Dark" class="screenshot">
+                        </div>
                         <img src="/images/iPhone/iphone-landscape.webp"
                             srcset="/images/iPhone/iphone-landscape@2x.webp 2x, /images/iPhone/iphone-landscape@3x.webp 3x"
                             alt="MathDown on iPhone Landscape">
@@ -162,10 +183,37 @@
         </section>
 
         <footer>
-            <p>&copy; 2026 MathDown Project. Built for the academic community.</p>
+            <p>&copy; 2026 MathDown Project.</p>
             <p><a href="/privacy/">Privacy Policy</a></p>
         </footer>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const containers = document.querySelectorAll('.screen');
+
+            containers.forEach(container => {
+                const screenshots = container.querySelectorAll('.screenshot');
+                if (screenshots.length < 2) return;
+
+                let currentIndex = 0;
+                setInterval(() => {
+                    const nextIndex = (currentIndex + 1) % screenshots.length;
+                    const currentImg = screenshots[currentIndex];
+                    const nextImg = screenshots[nextIndex];
+
+                    // Fade in the next image on top of the current one
+                    nextImg.classList.add('visible', 'on-top');
+
+                    setTimeout(() => {
+                        // After transition, remove top-layer status and hide the previous image
+                        currentImg.classList.remove('visible');
+                        nextImg.classList.remove('on-top');
+                        currentIndex = nextIndex;
+                    }, 1000); // Must match CSS transition duration
+                }, 5000);
+            });
+        });
+    </script>
 </body>
 
 </html>

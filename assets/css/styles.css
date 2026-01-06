@@ -159,6 +159,9 @@ th {
 }
 
 .screen img {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -232,8 +235,8 @@ th {
     width: 87%;
     height: 95%;
     border-radius: 12% / 6%;
-    background-color: #007aff;
-    /* Vibrant Blue */
+    background-color: #ffffff;
+    /* White background */
 }
 
 /* iPhone Landscape Screen Positioning */
@@ -282,6 +285,30 @@ th {
     filter: none;
     border: none;
 }
+
+.screenshot {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 1s ease-in-out;
+    filter: none !important;
+    border: none !important;
+    opacity: 0;
+    z-index: 1;
+}
+
+.screenshot.visible {
+    opacity: 1;
+}
+
+.screenshot.on-top {
+    z-index: 2;
+}
+
+
 
 footer {
     margin-top: 4em;
