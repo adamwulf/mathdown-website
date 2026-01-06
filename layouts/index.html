@@ -151,7 +151,9 @@
                     <div class="device-wrapper iphone-landscape-wrapper">
                         <div class="screen iphone-landscape-screen">
                             <img src="/images/iPhone/screenshot-iphone-landscape-light.webp"
-                                alt="MathDown Landscape Screenshot" class="screenshot">
+                                alt="MathDown Landscape Screenshot" class="screenshot visible">
+                            <img src="/images/iPhone/screenshot-iphone-landscape-dark.webp"
+                                alt="MathDown Landscape Screenshot Dark" class="screenshot">
                         </div>
                         <img src="/images/iPhone/iphone-landscape.webp"
                             srcset="/images/iPhone/iphone-landscape@2x.webp 2x, /images/iPhone/iphone-landscape@3x.webp 3x"
@@ -176,27 +178,29 @@
     </div>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            const container = document.querySelector('.iphone-screen');
-            if (!container) return;
-            const screenshots = container.querySelectorAll('.screenshot');
-            if (screenshots.length < 2) return;
+            const containers = document.querySelectorAll('.screen');
 
-            let currentIndex = 0;
-            setInterval(() => {
-                const nextIndex = (currentIndex + 1) % screenshots.length;
-                const currentImg = screenshots[currentIndex];
-                const nextImg = screenshots[nextIndex];
+            containers.forEach(container => {
+                const screenshots = container.querySelectorAll('.screenshot');
+                if (screenshots.length < 2) return;
 
-                // Fade in the next image on top of the current one
-                nextImg.classList.add('visible', 'on-top');
+                let currentIndex = 0;
+                setInterval(() => {
+                    const nextIndex = (currentIndex + 1) % screenshots.length;
+                    const currentImg = screenshots[currentIndex];
+                    const nextImg = screenshots[nextIndex];
 
-                setTimeout(() => {
-                    // After transition, remove top-layer status and hide the previous image
-                    currentImg.classList.remove('visible');
-                    nextImg.classList.remove('on-top');
-                    currentIndex = nextIndex;
-                }, 1000); // Must match CSS transition duration
-            }, 5000);
+                    // Fade in the next image on top of the current one
+                    nextImg.classList.add('visible', 'on-top');
+
+                    setTimeout(() => {
+                        // After transition, remove top-layer status and hide the previous image
+                        currentImg.classList.remove('visible');
+                        nextImg.classList.remove('on-top');
+                        currentIndex = nextIndex;
+                    }, 1000); // Must match CSS transition duration
+                }, 5000);
+            });
         });
     </script>
 </body>
