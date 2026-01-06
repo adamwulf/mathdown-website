@@ -19,7 +19,7 @@
 
         <section id="hero-image" class="hero-section">
             <div class="device-image-container">
-                <div class="device-wrapper macbook-wrapper">
+                <div class="device-wrapper macbook-wrapper"><!-- MacBook Pro 16-inch -->
                     <div class="screen macbook-screen">
                         <img src="/images/Computer/mac-desktop-background.webp" alt="macOS Desktop Background">
                         <div class="macbook-window">
@@ -43,14 +43,19 @@
 
             <section id="mobile-experience" class="mobile-preview-section">
                 <div class="mobile-images-container">
-                    <div class="device-wrapper ipad-wrapper">
+                    <div class="device-wrapper ipad-wrapper"><!-- iPad Pro 11-inch -->
                         <div class="screen ipad-screen"></div>
                         <img src="/images/iPad/ipad.webp"
                             srcset="/images/iPad/ipad@2x.webp 2x, /images/iPad/ipad@3x.webp 3x" alt="MathDown on iPad"
                             class="ipad-image">
                     </div>
-                    <div class="device-wrapper iphone-wrapper">
-                        <div class="screen iphone-screen"></div>
+                    <div class="device-wrapper iphone-wrapper"><!-- iPhone 15 Plus -->
+                        <div class="screen iphone-screen">
+                            <img src="/images/iPhone/screenshot-iphone-portrait-1-light.png" alt="MathDown Screenshot 1"
+                                class="screenshot active">
+                            <img src="/images/iPhone/screenshot-iphone-portrait-2-light.png" alt="MathDown Screenshot 2"
+                                class="screenshot">
+                        </div>
                         <img src="/images/iPhone/iphone.webp"
                             srcset="/images/iPhone/iphone@2x.webp 2x, /images/iPhone/iphone@3x.webp 3x"
                             alt="MathDown on iPhone" class="iphone-image">
@@ -144,7 +149,10 @@
                 </div>
                 <div class="landscape-preview">
                     <div class="device-wrapper iphone-landscape-wrapper">
-                        <div class="screen iphone-landscape-screen"></div>
+                        <div class="screen iphone-landscape-screen">
+                            <img src="/images/iPhone/screenshot-iphone-landscape-light.png"
+                                alt="MathDown Landscape Screenshot" class="screenshot">
+                        </div>
                         <img src="/images/iPhone/iphone-landscape.webp"
                             srcset="/images/iPhone/iphone-landscape@2x.webp 2x, /images/iPhone/iphone-landscape@3x.webp 3x"
                             alt="MathDown on iPhone Landscape">
@@ -166,6 +174,21 @@
             <p><a href="/privacy/">Privacy Policy</a></p>
         </footer>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const container = document.querySelector('.iphone-screen');
+            if (!container) return;
+            const screenshots = container.querySelectorAll('.screenshot');
+            if (screenshots.length < 2) return;
+
+            let currentIndex = 0;
+            setInterval(() => {
+                screenshots[currentIndex].classList.remove('active');
+                currentIndex = (currentIndex + 1) % screenshots.length;
+                screenshots[currentIndex].classList.add('active');
+            }, 5000);
+        });
+    </script>
 </body>
 
 </html>
