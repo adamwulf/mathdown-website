@@ -52,7 +52,7 @@
                     <div class="device-wrapper iphone-wrapper"><!-- iPhone 15 Plus -->
                         <div class="screen iphone-screen">
                             <img src="/images/iPhone/screenshot-iphone-portrait-1-light.png" alt="MathDown Screenshot 1"
-                                class="screenshot active">
+                                class="screenshot visible">
                             <img src="/images/iPhone/screenshot-iphone-portrait-2-light.png" alt="MathDown Screenshot 2"
                                 class="screenshot">
                         </div>
@@ -183,9 +183,19 @@
 
             let currentIndex = 0;
             setInterval(() => {
-                screenshots[currentIndex].classList.remove('active');
-                currentIndex = (currentIndex + 1) % screenshots.length;
-                screenshots[currentIndex].classList.add('active');
+                const nextIndex = (currentIndex + 1) % screenshots.length;
+                const currentImg = screenshots[currentIndex];
+                const nextImg = screenshots[nextIndex];
+
+                // Fade in the next image on top of the current one
+                nextImg.classList.add('visible', 'on-top');
+
+                setTimeout(() => {
+                    // After transition, remove top-layer status and hide the previous image
+                    currentImg.classList.remove('visible');
+                    nextImg.classList.remove('on-top');
+                    currentIndex = nextIndex;
+                }, 1000); // Must match CSS transition duration
             }, 5000);
         });
     </script>
