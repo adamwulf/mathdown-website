@@ -323,3 +323,85 @@ img {
     filter: grayscale(100%);
     border: 1px solid var(--border);
 }
+
+/* Mailchimp Form Overrides */
+#mc_embed_shell,
+#mc_embed_signup {
+    background: var(--bg) !important;
+    font-family: 'Fira Code', 'Courier New', Courier, monospace !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    clear: both;
+}
+
+#mc_embed_signup h2 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin: 0 0 1em 0;
+    padding: 0;
+    border-bottom: none;
+}
+
+#mc_embed_signup .indicates-required {
+    display: none;
+}
+
+#mc_embed_signup .mc-field-group {
+    display: inline-block;
+    padding-bottom: 0;
+    vertical-align: top;
+}
+
+#mc_embed_signup .mc-field-group label {
+    display: block;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+#mc_embed_signup .mc-field-group input[type="email"],
+#mc_embed_signup .mc-field-group input[type="text"] {
+    font-family: 'Fira Code', 'Courier New', Courier, monospace;
+    font-size: 1em;
+    width: 280px;
+    padding: 8px 12px;
+    border: 1px solid var(--border);
+    background: var(--bg);
+    color: var(--text);
+    box-sizing: border-box;
+}
+
+#mc_embed_signup .clear {
+    display: inline-block;
+    vertical-align: top;
+    padding-top: 2em;
+}
+
+#mc_embed_signup form {
+    padding-bottom: 2em;
+}
+
+#mc_embed_signup .mc-field-group input[type="email"]:focus,
+#mc_embed_signup .mc-field-group input[type="text"]:focus {
+    outline: 2px solid var(--text);
+    outline-offset: 1px;
+}
+
+#mc_embed_signup .button {
+    font-family: 'Fira Code', 'Courier New', Courier, monospace;
+    font-size: 1em;
+    background: var(--text);
+    color: var(--bg);
+    border: 1px solid var(--border);
+    padding: 8px 20px;
+    cursor: pointer;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+#mc_embed_signup .button:hover {
+    background: var(--bg);
+    color: var(--text);
+}
+
+#mc_embed_signup .asterisk {
+    color: var(--muted);
+}
