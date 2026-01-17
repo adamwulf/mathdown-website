@@ -318,6 +318,24 @@ footer {
     padding-top: 1em;
 }
 
+.app-store-badge {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    top: -1pt;
+}
+
+.app-store-badge img {
+    filter: none;
+    border: none;
+    transition: opacity 0.2s ease;
+    vertical-align: middle;
+}
+
+.app-store-badge:hover img {
+    opacity: 0.8;
+}
+
 img {
     max-width: 100%;
     filter: grayscale(100%);
@@ -404,4 +422,8 @@ img {
 
 #mc_embed_signup .asterisk {
     color: var(--muted);
+}
+
+.appstore-cta {
+    text-align: center;
 }
